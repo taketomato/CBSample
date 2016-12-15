@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import BlueCapKit
 
 class ViewController: UITableViewController, CBCentralManagerDelegate {
     
@@ -15,9 +16,11 @@ class ViewController: UITableViewController, CBCentralManagerDelegate {
     var peripherals: [CBPeripheral] = [CBPeripheral]()
 
     @IBOutlet var scanButtonItem: UIBarButtonItem!
+    @IBOutlet var blueCapButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItems = [blueCapButton]
         navigationItem.rightBarButtonItems = [scanButtonItem]
 
         // マネージャ生成
@@ -82,6 +85,12 @@ class ViewController: UITableViewController, CBCentralManagerDelegate {
         peripherals.removeAll()
         // ペリフェラルをスキャンする
         centralManager?.scanForPeripherals(withServices: nil, options: nil)
+    }
+    
+    @IBAction func blueCapButtonTapped(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "BlueCapViewController") as? BlueCapViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
