@@ -1,0 +1,12 @@
+PODS:
+  - BlueCapKit (0.2.0)
+
+DEPENDENCIES:
+  - BlueCapKit (~> 0.2)
+
+SPEC CHECKSUMS:
+  BlueCapKit: 29ccd5e4b8378f0fa2f07e5a3883ecf414c4314f
+
+PODFILE CHECKSUM: 0e3db3b68cf9be30e8dd49c5ecc6c4493beef0b9
+
+COCOAPODS: 1.1.1
